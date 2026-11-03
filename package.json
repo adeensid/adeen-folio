@@ -1,0 +1,28 @@
+{
+  "name": "adeen-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio of Adeen Ahmed Siddiqui: Next.js frontend with API routes for projects, contact messages and an admin inbox.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/api.test.ts"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.6.0",
+    "tsx": "^4.19.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
