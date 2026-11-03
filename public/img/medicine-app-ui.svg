@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9E8F4"/>
+      <stop offset="1" stop-color="#DCE9E4"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="420" y1="45" x2="780" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFCFE"/>
+      <stop offset="1" stop-color="#F6F7FA"/>
+    </linearGradient>
+    <filter id="shadow" x="350" y="0" width="500" height="700" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v675H0z"/>
+  <circle cx="180" cy="106" r="115" fill="#FFF" fill-opacity=".26"/>
+  <circle cx="1040" cy="570" r="160" fill="#FFF" fill-opacity=".32"/>
+  <ellipse cx="600" cy="650" fill="#22352F" fill-opacity=".18" rx="190" ry="22" filter="url(#shadow)"/>
+  <rect x="413" y="14" width="374" height="648" rx="54" fill="#1B2326"/>
+  <rect x="422" y="23" width="356" height="630" rx="46" fill="#11181B"/>
+  <rect x="432" y="34" width="336" height="608" rx="38" fill="url(#screen)"/>
+  <rect x="544" y="43" width="112" height="18" rx="9" fill="#11181B"/>
+  <text x="458" y="83" fill="#24332F" font-family="Arial,sans-serif" font-size="12" font-weight="700">9:41</text>
+  <path d="M722 76h15m-12-4h9m-6-4h3" stroke="#24332F" stroke-linecap="round" stroke-width="2"/>
+  <text x="456" y="124" fill="#182B28" font-family="Arial,sans-serif" font-size="19" font-weight="700">Good morning, Alex</text>
+  <text x="456" y="148" fill="#788681" font-family="Arial,sans-serif" font-size="12">Monday, October 12</text>
+  <circle cx="730" cy="119" r="17" fill="#E4F1EA"/>
+  <path d="M724 120a6 6 0 1 1 12 0v5h-12v-5Zm-2 5h16v3h-16z" stroke="#367B65" stroke-linejoin="round" stroke-width="1.5"/>
+  <rect x="450" y="168" width="300" height="105" rx="20" fill="#E5F3EC"/>
+  <text x="470" y="195" fill="#477465" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1">TODAY'S PROGRESS</text>
+  <text x="470" y="233" fill="#193D33" font-family="Arial,sans-serif" font-size="28" font-weight="700">2 of 4</text>
+  <text x="470" y="253" fill="#648377" font-family="Arial,sans-serif" font-size="11">reminders completed</text>
+  <circle cx="705" cy="221" r="30" stroke="#C9E1D4" stroke-width="8"/>
+  <path d="M705 191a30 30 0 0 1 29.6 25" stroke="#4E9B7F" stroke-linecap="round" stroke-width="8"/>
+  <text x="456" y="306" fill="#233631" font-family="Arial,sans-serif" font-size="15" font-weight="700">Medication schedule</text>
+  <text x="456" y="326" fill="#84918D" font-family="Arial,sans-serif" font-size="11">Your next reminders</text>
+  <rect x="450" y="343" width="300" height="70" rx="16" fill="#FFF" stroke="#E8ECE9"/>
+  <circle cx="480" cy="378" r="17" fill="#FBE8D8"/>
+  <path d="M474 375a6 6 0 0 1 12 0v6h-12v-6Zm1 0h10" stroke="#B47743" stroke-linecap="round" stroke-width="1.5"/>
+  <text x="508" y="371" fill="#293A35" font-family="Arial,sans-serif" font-size="13" font-weight="700">Vitamin D</text>
+  <text x="508" y="391" fill="#87928E" font-family="Arial,sans-serif" font-size="10">1 tablet · With breakfast</text>
+  <rect x="686" y="363" width="47" height="27" rx="13.5" fill="#EFF6F1"/>
+  <text x="698" y="381" fill="#43836D" font-family="Arial,sans-serif" font-size="10" font-weight="700">8:00</text>
+  <rect x="450" y="422" width="300" height="70" rx="16" fill="#FFF" stroke="#E8ECE9"/>
+  <circle cx="480" cy="457" r="17" fill="#E4EBFA"/>
+  <path d="M475 451h10v12h-10zM477 448h6v3h-6z" stroke="#6579B3" stroke-linejoin="round" stroke-width="1.5"/>
+  <text x="508" y="450" fill="#293A35" font-family="Arial,sans-serif" font-size="13" font-weight="700">Blood pressure</text>
+  <text x="508" y="470" fill="#87928E" font-family="Arial,sans-serif" font-size="10">1 tablet · After lunch</text>
+  <rect x="678" y="442" width="55" height="27" rx="13.5" fill="#F1F2F5"/>
+  <text x="687" y="460" fill="#78827E" font-family="Arial,sans-serif" font-size="10" font-weight="700">1:30 PM</text>
+  <text x="456" y="528" fill="#233631" font-family="Arial,sans-serif" font-size="15" font-weight="700">Upcoming appointment</text>
+  <rect x="450" y="543" width="300" height="64" rx="16" fill="#FFF" stroke="#E8ECE9"/>
+  <rect x="463" y="555" width="39" height="39" rx="11" fill="#F9E9E4"/>
+  <text x="472" y="572" fill="#AE6D5E" font-family="Arial,sans-serif" font-size="9" font-weight="700">OCT</text>
+  <text x="474" y="587" fill="#75483F" font-family="Arial,sans-serif" font-size="14" font-weight="700">18</text>
+  <text x="513" y="570" fill="#293A35" font-family="Arial,sans-serif" font-size="12" font-weight="700">Dr. Morgan Lee</text>
+  <text x="513" y="588" fill="#87928E" font-family="Arial,sans-serif" font-size="10">Family medicine · 10:30 AM</text>
+  <rect x="432" y="614" width="336" height="28" rx="0" fill="#FFF"/>
+  <path d="M495 624h13m-6.5-6.5v13" stroke="#4E9B7F" stroke-linecap="round" stroke-width="2"/>
+  <circle cx="600" cy="624" r="7" stroke="#A4AFAB" stroke-width="1.6"/>
+  <path d="M687 618h13v12h-13zM690 615v5m7-5v5" stroke="#A4AFAB" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+</svg>

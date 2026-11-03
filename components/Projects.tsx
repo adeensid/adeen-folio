@@ -125,10 +125,8 @@ export function Projects() {
                 </ul>
               </Block>
               {project.shot && (
-                <Block title="Screens">
-                  <div className="shot-ph" role="img" aria-label={`Placeholder for a ${project.name} screenshot`}>
-                    Add a screenshot at public{project.shot}
-                  </div>
+                <Block title="Interface preview">
+                  <img className="shot-image" src={project.shot} alt={`${project.name} interface preview`} />
                 </Block>
               )}
               {project.note && (

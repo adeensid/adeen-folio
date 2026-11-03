@@ -196,7 +196,7 @@ dialog::backdrop{background:rgba(6,14,12,.62)}
 .flow{display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; list-style:none; padding:0!important; margin:0}
 .flow li{font-family:var(--font-mono); font-size:12.5px; padding:4px 10px; background:var(--soft); border-radius:6px}
 .flow li + li::before{content:"\2192"; color:var(--link); margin-right:8px}
-.shot-ph{aspect-ratio:21/9; display:grid; place-items:center; text-align:center; padding:12px; border:1.5px dashed var(--line); border-radius:14px; color:var(--muted); font-family:var(--font-mono); font-size:12px}
+.shot-image{display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--line); border-radius:14px}
 .dlg-nav{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; padding-top:20px}
 
 @media (max-width: 960px){

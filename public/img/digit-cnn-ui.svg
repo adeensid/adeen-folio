@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17172A"/>
+      <stop offset="1" stop-color="#292345"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="317" y1="129" x2="1048" y2="605" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25243A"/>
+      <stop offset="1" stop-color="#201F32"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v675H0z"/>
+  <circle cx="1051" cy="98" r="184" fill="#6A51C8" fill-opacity=".12"/>
+  <circle cx="173" cy="625" r="203" fill="#36A99A" fill-opacity=".08"/>
+  <rect x="77" y="58" width="1046" height="559" rx="22" fill="#F8F8FC"/>
+  <path d="M99 58h1002a22 22 0 0 1 22 22v42H77V80a22 22 0 0 1 22-22Z" fill="#FFF"/>
+  <circle cx="103" cy="90" r="5" fill="#F17778"/>
+  <circle cx="121" cy="90" r="5" fill="#F3BE62"/>
+  <circle cx="139" cy="90" r="5" fill="#62C796"/>
+  <rect x="171" y="78" width="160" height="24" rx="7" fill="#F1F1F6"/>
+  <text x="186" y="94" fill="#77758A" font-family="Arial,sans-serif" font-size="10">digitlab.workspace</text>
+  <rect x="77" y="122" width="203" height="495" fill="#F1F0F7"/>
+  <rect x="97" y="145" width="34" height="34" rx="11" fill="#6756C7"/>
+  <path d="M107 154v16m14-16v16m-14-8h14" stroke="#FFF" stroke-linecap="round" stroke-width="2"/>
+  <text x="141" y="167" fill="#27253B" font-family="Arial,sans-serif" font-size="16" font-weight="700">DigitLab</text>
+  <text x="100" y="215" fill="#9A98AA" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1">WORKSPACE</text>
+  <rect x="94" y="229" width="168" height="38" rx="10" fill="#E5E2F8"/>
+  <rect x="108" y="240" width="14" height="14" rx="3" fill="#6D5CD0"/>
+  <path d="m112 251 3-4 3 2 3-5" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  <text x="132" y="253" fill="#4B418E" font-family="Arial,sans-serif" font-size="11" font-weight="700">Predict digit</text>
+  <rect x="108" y="284" width="14" height="14" rx="3" fill="#E2E1E9"/>
+  <path d="M112 287h6v8h-6z" stroke="#88869B" stroke-width="1.2"/>
+  <text x="132" y="296" fill="#77758A" font-family="Arial,sans-serif" font-size="11">Model overview</text>
+  <rect x="108" y="323" width="14" height="14" rx="3" fill="#E2E1E9"/>
+  <path d="M111 330h8m-8 3h6m-6-6h5" stroke="#88869B" stroke-linecap="round" stroke-width="1.2"/>
+  <text x="132" y="335" fill="#77758A" font-family="Arial,sans-serif" font-size="11">Prediction history</text>
+  <rect x="108" y="362" width="14" height="14" rx="3" fill="#E2E1E9"/>
+  <circle cx="115" cy="369" r="4" stroke="#88869B" stroke-width="1.2"/>
+  <text x="132" y="374" fill="#77758A" font-family="Arial,sans-serif" font-size="11">Settings</text>
+  <path d="M96 586h163" stroke="#DFDEE8"/>
+  <circle cx="115" cy="603" r="12" fill="#E5DDF8"/>
+  <text x="111" y="607" fill="#6756C7" font-family="Arial,sans-serif" font-size="10" font-weight="700">A</text>
+  <text x="135" y="600" fill="#37354A" font-family="Arial,sans-serif" font-size="10" font-weight="700">Alex Morgan</text>
+  <text x="135" y="612" fill="#9795A6" font-family="Arial,sans-serif" font-size="8">Personal workspace</text>
+  <rect x="280" y="122" width="843" height="495" fill="#F8F8FC"/>
+  <text x="316" y="170" fill="#242338" font-family="Arial,sans-serif" font-size="23" font-weight="700">Handwritten digit recognition</text>
+  <text x="316" y="193" fill="#88869A" font-family="Arial,sans-serif" font-size="11">Draw a digit or upload an image to try the model.</text>
+  <rect x="943" y="148" width="144" height="31" rx="15.5" fill="#E8F5EE"/>
+  <circle cx="960" cy="164" r="4" fill="#42A77B"/>
+  <text x="972" y="168" fill="#348563" font-family="Arial,sans-serif" font-size="10" font-weight="700">MODEL READY</text>
+  <rect x="316" y="216" width="452" height="350" rx="16" fill="url(#panel)"/>
+  <text x="340" y="249" fill="#C5C1D8" font-family="Arial,sans-serif" font-size="12" font-weight="700">DRAW A DIGIT</text>
+  <text x="716" y="249" fill="#827F9B" font-family="Arial,sans-serif" font-size="10">28 × 28 input</text>
+  <rect x="443" y="268" width="198" height="198" rx="12" fill="#151524" stroke="#3B3852"/>
+  <path d="M486 311c25-3 62-4 124 0l-78 111m-30-53h72" stroke="#F0EEF9" stroke-linecap="round" stroke-linejoin="round" stroke-width="15"/>
+  <path d="M486 311c25-3 62-4 124 0l-78 111m-30-53h72" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".42" stroke-width="5"/>
+  <rect x="343" y="501" width="109" height="38" rx="10" fill="#39364F"/>
+  <text x="372" y="525" fill="#D9D6E8" font-family="Arial,sans-serif" font-size="11" font-weight="700">Clear canvas</text>
+  <rect x="607" y="501" width="137" height="38" rx="10" fill="#6B59CC"/>
+  <path d="M629 513h12m-6-6v12" stroke="#FFF" stroke-linecap="round" stroke-width="1.5"/>
+  <text x="650" y="525" fill="#FFF" font-family="Arial,sans-serif" font-size="11" font-weight="700">Run prediction</text>
+  <rect x="788" y="216" width="299" height="350" rx="16" fill="#FFF" stroke="#EAE9F1"/>
+  <text x="813" y="249" fill="#333147" font-family="Arial,sans-serif" font-size="13" font-weight="700">Prediction result</text>
+  <rect x="813" y="269" width="249" height="132" rx="12" fill="#F6F4FE"/>
+  <text x="839" y="352" fill="#6654C1" font-family="Arial,sans-serif" font-size="78" font-weight="700">7</text>
+  <text x="906" y="316" fill="#88859A" font-family="Arial,sans-serif" font-size="10">TOP PREDICTION</text>
+  <text x="906" y="341" fill="#343149" font-family="Arial,sans-serif" font-size="19" font-weight="700">Digit seven</text>
+  <rect x="906" y="357" width="112" height="23" rx="11.5" fill="#E9E5FB"/>
+  <text x="920" y="372" fill="#6251B2" font-family="Arial,sans-serif" font-size="10" font-weight="700">Demo prediction</text>
+  <text x="813" y="431" fill="#555368" font-family="Arial,sans-serif" font-size="11" font-weight="700">Class scores</text>
+  <text x="813" y="460" fill="#878597" font-family="Arial,sans-serif" font-size="10">7</text>
+  <rect x="835" y="452" width="176" height="8" rx="4" fill="#ECEAF3"/>
+  <rect x="835" y="452" width="154" height="8" rx="4" fill="#7967D4"/>
+  <text x="1030" y="460" fill="#4E4881" font-family="Arial,sans-serif" font-size="10" font-weight="700">high</text>
+  <text x="813" y="487" fill="#878597" font-family="Arial,sans-serif" font-size="10">1</text>
+  <rect x="835" y="479" width="176" height="8" rx="4" fill="#ECEAF3"/>
+  <rect x="835" y="479" width="26" height="8" rx="4" fill="#B9B2E5"/>
+  <text x="813" y="514" fill="#878597" font-family="Arial,sans-serif" font-size="10">2</text>
+  <rect x="835" y="506" width="176" height="8" rx="4" fill="#ECEAF3"/>
+  <rect x="835" y="506" width="15" height="8" rx="4" fill="#B9B2E5"/>
+  <text x="316" y="595" fill="#918FA1" font-family="Arial,sans-serif" font-size="10">Illustrative interface preview · MNIST digit classification</text>
+</svg>
