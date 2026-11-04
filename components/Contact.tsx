@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { contactTypes, profile } from "@/lib/data";
 
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
@@ -11,6 +11,7 @@ export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [problem, setProblem] = useState("");
   const [copied, setCopied] = useState<"" | "ok" | "fail">("");
+  const [messageLength, setMessageLength] = useState(0);
 
   async function copyEmail() {
     try {
@@ -54,6 +55,7 @@ export function Contact() {
       const body = await res.json().catch(() => ({}));
       if (res.ok && body.ok) {
         setStatus("sent");
+        setMessageLength(0);
         form.reset();
         return;
       }
@@ -84,10 +86,13 @@ export function Contact() {
           <div className="direct">
             <div className="row">
               <span className="k">Email</span>
-              <span className="v">{profile.email}</span>
-              <button className="mini-btn" type="button" onClick={copyEmail}>
+              <a className="v" href={`mailto:${profile.email}`}>{profile.email}</a>
+              <button className="mini-btn" type="button" onClick={copyEmail} aria-label="Copy email address">
                 {copied === "ok" ? "Copied" : copied === "fail" ? "Press Ctrl+C" : "Copy"}
               </button>
+              <span className="sr" aria-live="polite">
+                {copied === "ok" ? "Email address copied." : copied === "fail" ? "Could not copy email address." : ""}
+              </span>
             </div>
             <div className="row">
               <span className="k">GitHub</span>
@@ -116,14 +121,14 @@ export function Contact() {
           <form onSubmit={onSubmit} noValidate aria-label="Contact form">
             <div className="field">
               <label htmlFor="f-name">Your name</label>
-              <input id="f-name" name="name" autoComplete="name" required aria-invalid={errors.name ? true : undefined} aria-describedby="e-name" />
+              <input id="f-name" name="name" autoComplete="name" maxLength={80} required aria-invalid={errors.name ? true : undefined} aria-describedby="e-name" />
               <div className="err" id="e-name" aria-live="polite">
                 {errors.name}
               </div>
             </div>
             <div className="field">
               <label htmlFor="f-email">Your email</label>
-              <input id="f-email" name="email" type="email" autoComplete="email" required aria-invalid={errors.email ? true : undefined} aria-describedby="e-email" />
+              <input id="f-email" name="email" type="email" autoComplete="email" maxLength={120} required aria-invalid={errors.email ? true : undefined} aria-describedby="e-email" />
               <div className="err" id="e-email" aria-live="polite">
                 {errors.email}
               </div>
@@ -138,10 +143,21 @@ export function Contact() {
             </div>
             <div className="field">
               <label htmlFor="f-msg">Message</label>
-              <textarea id="f-msg" name="message" required aria-invalid={errors.message ? true : undefined} aria-describedby="e-msg" />
+              <textarea
+                id="f-msg"
+                name="message"
+                maxLength={4000}
+                required
+                aria-invalid={errors.message ? true : undefined}
+                aria-describedby="e-msg message-count"
+                onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setMessageLength(event.target.value.length)}
+              />
               <div className="err" id="e-msg" aria-live="polite">
                 {errors.message}
               </div>
+              <p className="message-count" id="message-count" aria-live="polite">
+                {messageLength} / 4,000 characters
+              </p>
             </div>
             {/* Spam trap. People never see or fill this. */}
             <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>

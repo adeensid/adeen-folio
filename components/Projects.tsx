@@ -8,11 +8,17 @@ const HASH_PREFIX = "#p-";
 
 export function Projects() {
   const [filter, setFilter] = useState<(typeof filters)[number]["id"]>("all");
+  const [query, setQuery] = useState("");
   const [openId, setOpenId] = useState<string | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const lastTrigger = useRef<HTMLElement | null>(null);
 
-  const visible = projects.filter((p) => filter === "all" || p.cats.includes(filter));
+  const search = query.trim().toLocaleLowerCase();
+  const visible = projects.filter((p) => {
+    const matchesFilter = filter === "all" || p.cats.includes(filter);
+    const searchable = `${p.name} ${p.blurb} ${p.stack.join(" ")}`.toLocaleLowerCase();
+    return matchesFilter && (!search || searchable.includes(search));
+  });
   const project = projects.find((p) => p.id === openId) || null;
 
   const open = useCallback((id: string) => {
@@ -61,12 +67,33 @@ export function Projects() {
         <p>Open a project to see the challenge, my role, what I built and how the pieces connect.</p>
       </div>
 
-      <div className="filters" role="group" aria-label="Filter projects">
-        {filters.map((f) => (
-          <button key={f.id} type="button" className="chip-btn" aria-pressed={filter === f.id} data-f={f.id} onClick={() => setFilter(f.id)}>
-            {f.label}
-          </button>
-        ))}
+      <div className="project-tools">
+        <div className="project-search">
+          <label className="sr" htmlFor="project-query">Search projects by name, description, or technology</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8" />
+            <path d="m16 16 4.5 4.5" />
+          </svg>
+          <input
+            id="project-query"
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search projects or technologies"
+          />
+          {query && (
+            <button type="button" className="search-clear" onClick={() => setQuery("")} aria-label="Clear project search">
+              Clear
+            </button>
+          )}
+        </div>
+        <div className="filters" role="group" aria-label="Filter projects by category">
+          {filters.map((f) => (
+            <button key={f.id} type="button" className="chip-btn" aria-pressed={filter === f.id} data-f={f.id} onClick={() => setFilter(f.id)}>
+              {f.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="cards">
@@ -74,7 +101,11 @@ export function Projects() {
           <ProjectCard key={p.id} p={p} onOpen={() => open(p.id)} />
         ))}
       </div>
-      {visible.length === 0 && <p className="empty-note">No projects in this category yet.</p>}
+      {visible.length === 0 && (
+        <p className="empty-note">
+          {search ? `No projects match “${query.trim()}”. Try another search or clear the filters.` : "No projects in this category yet."}
+        </p>
+      )}
       <p className="sr" aria-live="polite">
         {visible.length} {visible.length === 1 ? "project" : "projects"} shown
       </p>
