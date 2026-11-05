@@ -10,6 +10,7 @@ export function Projects() {
   const [filter, setFilter] = useState<(typeof filters)[number]["id"]>("all");
   const [query, setQuery] = useState("");
   const [openId, setOpenId] = useState<string | null>(null);
+  const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "unavailable">("idle");
   const dialogRef = useRef<HTMLDialogElement>(null);
   const lastTrigger = useRef<HTMLElement | null>(null);
 
@@ -23,9 +24,21 @@ export function Projects() {
 
   const open = useCallback((id: string) => {
     if (!dialogRef.current?.open) lastTrigger.current = document.activeElement as HTMLElement | null;
+    setShareStatus("idle");
     setOpenId(id);
     history.replaceState(null, "", `${HASH_PREFIX}${id}`);
   }, []);
+
+  async function copyProjectLink() {
+    if (!project) return;
+    try {
+      await navigator.clipboard.writeText(`${window.location.origin}/${HASH_PREFIX}${project.id}`);
+      setShareStatus("copied");
+      window.setTimeout(() => setShareStatus("idle"), 2000);
+    } catch {
+      setShareStatus("unavailable");
+    }
+  }
 
   // Open from a link like /#p-shirtify, both on load and when the hash changes later.
   useEffect(() => {
@@ -64,7 +77,7 @@ export function Projects() {
     <section id="work" aria-labelledby="h-work">
       <div className="head">
         <h2 id="h-work">Selected work</h2>
-        <p>Open a project to see the challenge, my role, what I built and how the pieces connect.</p>
+        <p>A mix of shipped work, academic projects, and client work in progress. Open a case study for the details.</p>
       </div>
 
       <div className="project-tools">
@@ -96,21 +109,47 @@ export function Projects() {
         </div>
       </div>
 
+      <p className="project-count" aria-live="polite">
+        Showing <strong>{visible.length}</strong> of {projects.length} projects
+      </p>
       <div className="cards">
         {visible.map((p) => (
           <ProjectCard key={p.id} p={p} onOpen={() => open(p.id)} />
         ))}
       </div>
       {visible.length === 0 && (
-        <p className="empty-note">
-          {search ? `No projects match “${query.trim()}”. Try another search or clear the filters.` : "No projects in this category yet."}
-        </p>
+        <div className="empty-note">
+          <p>{search ? `No projects match “${query.trim()}”. Try another search or reset your filters.` : "No projects in this category yet."}</p>
+          <button
+            type="button"
+            className="btn line"
+            onClick={() => {
+              setQuery("");
+              setFilter("all");
+            }}
+          >
+            Reset search and filters
+          </button>
+        </div>
       )}
-      <p className="sr" aria-live="polite">
-        {visible.length} {visible.length === 1 ? "project" : "projects"} shown
-      </p>
 
-      <dialog ref={dialogRef} id="dlg" aria-labelledby="dlg-title" onClose={onClose} onClick={(e) => e.target === dialogRef.current && dialogRef.current?.close()}>
+      <dialog
+        ref={dialogRef}
+        id="dlg"
+        aria-labelledby="dlg-title"
+        onClose={onClose}
+        onCancel={(event) => {
+          event.preventDefault();
+          dialogRef.current?.close();
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            dialogRef.current?.close();
+          }
+        }}
+        onClick={(event) => event.target === dialogRef.current && dialogRef.current?.close()}
+      >
         {project && (
           <>
             <div className={`dlg-cover ${project.cover}`}>
@@ -166,6 +205,9 @@ export function Projects() {
                 </Block>
               )}
               <div className="dlg-nav">
+                <button className="btn line share-btn" type="button" onClick={copyProjectLink}>
+                  {shareStatus === "copied" ? "Link copied" : shareStatus === "unavailable" ? "Copy from address bar" : "Copy project link"}
+                </button>
                 {prev && (
                   <button className="btn line" type="button" onClick={() => open(prev.id)}>
                     ← {prev.name}
@@ -182,6 +224,9 @@ export function Projects() {
                   </button>
                 )}
               </div>
+              <p className={shareStatus === "unavailable" ? "share-status" : "sr"} role="status" aria-live="polite">
+                {shareStatus === "copied" ? "Project link copied to clipboard." : shareStatus === "unavailable" ? "Clipboard access is unavailable in this browser." : ""}
+              </p>
             </div>
           </>
         )}
@@ -213,6 +258,10 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
         )}
       </div>
       <div className="card-body">
+        <div className="card-meta">
+          <span>{p.kicker}</span>
+          <span>{p.cats.map((category) => category.toUpperCase()).join(" · ")}</span>
+        </div>
         <h3>{p.name}</h3>
         <p>{p.blurb}</p>
         <div className="mini">
@@ -221,7 +270,7 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
           ))}
           {p.stack.length > 4 && <span>+{p.stack.length - 4}</span>}
         </div>
-        <span className="more">View project →</span>
+        <span className="more">View case study <span aria-hidden="true">→</span></span>
       </div>
     </button>
   );

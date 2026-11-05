@@ -25,6 +25,7 @@ export function Contact() {
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (status === "sending") return;
     const form = e.currentTarget;
     const data = new FormData(form);
     const payload = {
@@ -118,17 +119,36 @@ export function Contact() {
             </button>
           </div>
         ) : (
-          <form onSubmit={onSubmit} noValidate aria-label="Contact form">
+          <form onSubmit={onSubmit} noValidate aria-label="Contact form" aria-busy={status === "sending"}>
             <div className="field">
               <label htmlFor="f-name">Your name</label>
-              <input id="f-name" name="name" autoComplete="name" maxLength={80} required aria-invalid={errors.name ? true : undefined} aria-describedby="e-name" />
+              <input
+                id="f-name"
+                name="name"
+                autoComplete="name"
+                maxLength={80}
+                required
+                aria-invalid={errors.name ? true : undefined}
+                aria-describedby="e-name"
+                onChange={() => errors.name && setErrors((current) => ({ ...current, name: undefined }))}
+              />
               <div className="err" id="e-name" aria-live="polite">
                 {errors.name}
               </div>
             </div>
             <div className="field">
               <label htmlFor="f-email">Your email</label>
-              <input id="f-email" name="email" type="email" autoComplete="email" maxLength={120} required aria-invalid={errors.email ? true : undefined} aria-describedby="e-email" />
+              <input
+                id="f-email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                maxLength={120}
+                required
+                aria-invalid={errors.email ? true : undefined}
+                aria-describedby="e-email"
+                onChange={() => errors.email && setErrors((current) => ({ ...current, email: undefined }))}
+              />
               <div className="err" id="e-email" aria-live="polite">
                 {errors.email}
               </div>
@@ -150,7 +170,10 @@ export function Contact() {
                 required
                 aria-invalid={errors.message ? true : undefined}
                 aria-describedby="e-msg message-count"
-                onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setMessageLength(event.target.value.length)}
+                onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
+                  setMessageLength(event.target.value.length);
+                  if (errors.message) setErrors((current) => ({ ...current, message: undefined }));
+                }}
               />
               <div className="err" id="e-msg" aria-live="polite">
                 {errors.message}
