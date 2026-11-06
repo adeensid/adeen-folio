@@ -2,7 +2,7 @@ import { services } from "@/lib/data";
 
 export function Services() {
   return (
-    <section id="services" aria-labelledby="h-svc">
+    <section id="services" aria-labelledby="h-svc" data-reveal>
       <div className="head">
         <h2 id="h-svc">What I can do for you</h2>
         <p>Four areas, each backed by a project above.</p>

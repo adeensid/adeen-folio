@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section id="about" aria-labelledby="h-about">
+    <section id="about" aria-labelledby="h-about" data-reveal>
       <div className="about-grid">
         <div>
           <p className="eyebrow">About</p>

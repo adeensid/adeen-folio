@@ -74,7 +74,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" aria-labelledby="h-contact">
+    <section id="contact" aria-labelledby="h-contact" data-reveal>
       <div className="contact-card">
         <div>
           <p className="eyebrow" style={{ color: "var(--hero-muted)" }}>

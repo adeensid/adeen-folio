@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { RevealEffects } from "@/components/RevealEffects";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,7 +32,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" />
         <script src="/theme-init.js" />
       </head>
-      <body>{children}</body>
+      <body>
+        <RevealEffects />
+        {children}
+      </body>
     </html>
   );
 }

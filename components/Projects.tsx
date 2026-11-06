@@ -74,7 +74,7 @@ export function Projects() {
   const next = idx >= 0 ? projects[(idx + 1) % projects.length] : null;
 
   return (
-    <section id="work" aria-labelledby="h-work">
+    <section id="work" aria-labelledby="h-work" data-reveal>
       <div className="head">
         <h2 id="h-work">Selected work</h2>
         <p>A mix of shipped work, academic projects, and client work in progress. Open a case study for the details.</p>

@@ -1,11 +1,11 @@
-import Image from "next/image";
+import { Portrait } from "@/components/Portrait";
 import { profile, projects } from "@/lib/data";
 
 export function Hero() {
   return (
     <section className="hero" id="top" style={{ paddingBlock: "clamp(28px,5vw,64px) 0" }} aria-labelledby="h-hero">
       <div className="hero-grid">
-        <div className="hero-copy">
+        <div className="hero-copy" data-reveal="hero-copy">
           <span className="status">{profile.status}</span>
           <h1 id="h-hero">
             {profile.headline} <em>{profile.headlineEm}</em>
@@ -20,13 +20,11 @@ export function Hero() {
             </a>
           </div>
         </div>
-        <div className="portrait-col">
-          <div className="portrait">
-            <Image src="/img/adeen.jpg" alt={`Portrait of ${profile.name}`} width={900} height={1351} priority sizes="(max-width: 820px) 80vw, 380px" />
-          </div>
+        <div className="portrait-col" data-reveal="hero-portrait">
+          <Portrait name={profile.name} />
         </div>
       </div>
-      <div className="stats hero-bottom" role="list">
+      <div className="stats hero-bottom" role="list" data-reveal="hero-stats">
         <div role="listitem">
           <b>{projects.length}</b>
           <span>projects written up below</span>

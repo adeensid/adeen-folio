@@ -3,7 +3,7 @@ import { Txt } from "./Txt";
 
 export function Experience() {
   return (
-    <section id="experience" aria-labelledby="h-exp">
+    <section id="experience" aria-labelledby="h-exp" data-reveal>
       <div className="head">
         <h2 id="h-exp">Experience and education</h2>
       </div>

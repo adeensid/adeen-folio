@@ -26,7 +26,7 @@ export function Skills() {
   }
 
   return (
-    <section id="skills" aria-labelledby="h-skills">
+    <section id="skills" aria-labelledby="h-skills" data-reveal>
       <div className="head">
         <h2 id="h-skills">Skills and tools</h2>
         <p>Grouped by what I use them for.</p>
